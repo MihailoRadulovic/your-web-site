@@ -57,7 +57,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1)}
 .btn-green:hover{background:var(--green2);transform:translateY(-2px)}
 .btn-green svg{transition:transform .2s}
 .btn-green:hover svg{transform:translateX(3px)}
-.btn-outline-green{border:2px solid var(--green);color:var(--green);padding:.85rem 1.8rem;border-radius:8px;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
+.btn-outline-green{border:2px solid var(--green);color:var(--green);padding:.85rem 1.8rem;border-radius:8px;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,color .2s,transform .2s}
 .btn-outline-green:hover{background:var(--green-faint)}
 .promo-card{background:var(--white);border-radius:14px;padding:1.1rem 1.4rem;box-shadow:0 8px 32px rgba(21,128,61,.15);border:1px solid var(--green-light);display:inline-flex;align-items:center;gap:1rem;max-width:220px}
 .promo-icon{width:44px;height:44px;background:var(--green-faint);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -154,7 +154,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1)}
 .newsletter-form{display:flex;gap:.7rem;max-width:440px;margin:0 auto;flex-wrap:wrap}
 .newsletter-form input{flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:.8rem 1.1rem;color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;min-width:200px}
 .newsletter-form input::placeholder{color:rgba(255,255,255,.4)}
-.newsletter-form input:focus{outline:none;border-color:var(--green3)}
+.newsletter-form input:focus{outline:none;border-color:var(--green3);box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.newsletter-form input:focus-visible{outline:2px solid var(--green3);outline-offset:2px}
 .newsletter-form button{background:var(--green);color:#fff;border:none;border-radius:8px;padding:.8rem 1.5rem;font-weight:700;font-family:'Poppins',sans-serif;font-size:.9rem;cursor:pointer;transition:background .2s;white-space:nowrap}
 .newsletter-form button:hover{background:var(--green2)}
 
@@ -175,7 +176,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1)}
 .form-group{margin-bottom:1rem}
 .form-group label{display:block;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:.4rem}
 .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--off);border:1.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--dark);font-family:'DM Sans',sans-serif;font-size:.95rem;transition:border-color .2s;-webkit-appearance:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--green);background:var(--white)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--green);background:var(--white);box-shadow:0 0 0 3px rgba(21,128,61,.15)}
+.form-group input:focus-visible,.form-group select:focus-visible,.form-group textarea:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .form-group textarea{resize:vertical;min-height:90px}
 .form-success{display:none;background:rgba(21,128,61,.1);border:1px solid rgba(21,128,61,.3);border-radius:8px;padding:1rem;text-align:center;color:var(--green);margin-bottom:1rem;font-weight:500}
 
@@ -195,6 +197,10 @@ footer{background:var(--dark2);color:rgba(255,255,255,.55);padding:4rem 5% 2rem}
 /* FADE */
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}
 .fade-up.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .fade-up{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
 
 /* MOBILE */
 @media(max-width:900px){
@@ -517,12 +523,12 @@ footer{background:var(--dark2);color:rgba(255,255,255,.55);padding:4rem 5% 2rem}
     <div class="form-success" id="formSuccess">Your request has been sent! We'll contact you shortly.</div>
     <form id="contactForm">
       <div class="form-row">
-        <div class="form-group"><label for="fname">Your Name</label><input id="fname" type="text" placeholder="John Smith" required></div>
-        <div class="form-group"><label for="fphone">Phone Number</label><input id="fphone" type="tel" placeholder="(918) 555-0000" required></div>
+        <div class="form-group"><label for="fname">Your Name</label><input id="fname" name="name" type="text" autocomplete="name" placeholder="John Smith" required></div>
+        <div class="form-group"><label for="fphone">Phone Number</label><input id="fphone" name="tel" type="tel" autocomplete="tel" placeholder="(918) 555-0000" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label for="faddr">Service Address</label><input id="faddr" type="text" placeholder="Your Tulsa address"></div>
-        <div class="form-group"><label for="fdate">Preferred Date</label><input id="fdate" type="date"></div>
+        <div class="form-group"><label for="faddr">Service Address</label><input id="faddr" name="street-address" type="text" autocomplete="street-address" placeholder="Your Tulsa address"></div>
+        <div class="form-group"><label for="fdate">Preferred Date</label><input id="fdate" name="date" type="date"></div>
       </div>
       <div class="form-group"><label for="fservice">Service Needed</label>
         <select id="fservice">
