@@ -117,6 +117,22 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2.5rem 5%;displ
 .foot-links a{font-size:.85rem;transition:color .2s}
 .foot-links a:hover{color:var(--accent2)}
 
+/* REVIEWS */
+.rv-section{padding:5rem 5%;background:var(--bg2)}
+.rv-head{text-align:center;margin-bottom:2.5rem}
+.rv-label{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:.5rem}
+.rv-head h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark)}
+.rv-head h2 span{color:var(--accent)}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rv-card{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:1.6rem;transition:transform .2s,box-shadow .2s}
+.rv-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(37,99,235,.1)}
+.rv-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.7rem}
+.rv-text{color:var(--text);font-size:.9rem;line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.rv-author{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0}
+.rv-name{display:block;color:var(--dark);font-size:.88rem;font-weight:600}
+.rv-meta{display:block;font-size:.75rem;color:var(--muted)}
+
 /* FADE */
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
 .fade-up.visible{opacity:1;transform:none}
@@ -132,6 +148,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2.5rem 5%;displ
   .about{grid-template-columns:1fr}
   .about-deco{height:200px}
   .about-deco .big-init{font-size:4rem}
+  .rv-grid{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center}
@@ -251,6 +268,39 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2.5rem 5%;displ
     <h2>The Jesus Difference</h2>
   </div>
   <div class="feat-grid"><div class="feat-card"><div class="feat-icon">🏆</div><h4>Licensed & Insured</h4><p>Fully licensed, bonded and insured for your peace of mind.</p></div><div class="feat-card"><div class="feat-icon">⚡</div><h4>Fast Response</h4><p>Quick scheduling — often same or next day available.</p></div><div class="feat-card"><div class="feat-icon">💰</div><h4>Fair Pricing</h4><p>Transparent, upfront pricing with no hidden fees.</p></div><div class="feat-card"><div class="feat-icon">⭐</div><h4>5-Star Service</h4><p>Consistently rated 5 stars by our happy customers.</p></div></div>
+</section>
+
+
+<section class="rv-section fade-up">
+  <div class="rv-head">
+    <div class="rv-label">CUSTOMER REVIEWS</div>
+    <h2>What Our <span>Customers Say</span></h2>
+  </div>
+  <div class="rv-grid">
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"Jesus Seed Lawn Care did a great job removing leaves from our house. They did an excellent job communicating with us throughout, answering all of our questions, and sending us before and after photos since we were not able to be there. We'll definitely be using their services in "</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">M</div>
+            <div><strong class="rv-name">Mona Lo</strong><span class="rv-meta">Google · 4 years ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"We live in Owasso and we have had a couple of estimates and they were crazy high.   These gentlemen did an excellent job and having them come back.  If I could give more than five stars I definitely would!"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">M</div>
+            <div><strong class="rv-name">Malinda Raley</strong><span class="rv-meta">Google · 4 years ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"Jorge and his team are awesome. They are quick and efficient, and I love the no-contact payment option. Their prices are very reasonable, and our yard always looks great."</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">M</div>
+            <div><strong class="rv-name">Marisa Alghazali</strong><span class="rv-meta">Google · 4 years ago</span></div>
+          </div>
+        </div></div>
 </section>
 
 <section class="contact fade-up" id="contact">

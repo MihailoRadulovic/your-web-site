@@ -109,6 +109,22 @@ footer{background:var(--black);border-top:2px solid var(--red);padding:2rem 5%;d
 .foot-links a{color:var(--muted);font-size:.85rem;transition:color .2s}
 .foot-links a:hover{color:var(--red)}
 
+/* REVIEWS */
+.rv-section{padding:5rem 5%;background:var(--dark2)}
+.rv-head{text-align:center;margin-bottom:2.5rem}
+.rv-label{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--red);margin-bottom:.5rem}
+.rv-head h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;color:#fff}
+.rv-head h2 span{color:var(--red)}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rv-card{background:var(--dark);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.6rem;transition:transform .2s,border-color .2s}
+.rv-card:hover{transform:translateY(-4px);border-color:rgba(229,34,34,.3)}
+.rv-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.7rem}
+.rv-text{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.rv-author{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0}
+.rv-name{display:block;color:#fff;font-size:.88rem;font-weight:600}
+.rv-meta{display:block;font-size:.75rem;color:var(--muted)}
+
 /* FADE IN */
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity .6s,transform .6s}
 .fade-up.visible{opacity:1;transform:none}
@@ -125,6 +141,7 @@ footer{background:var(--black);border-top:2px solid var(--red);padding:2rem 5%;d
   .brands-grid{grid-template-columns:repeat(3,1fr)}
   .about{grid-template-columns:1fr}
   .about-img{display:none}
+  .rv-grid{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center}
@@ -212,6 +229,39 @@ footer{background:var(--black);border-top:2px solid var(--red);padding:2rem 5%;d
     </ul>
     <a href="#contact" class="btn-red">Schedule Service →</a>
   </div>
+</section>
+
+
+<section class="rv-section fade-up">
+  <div class="rv-head">
+    <div class="rv-label">CUSTOMER REVIEWS</div>
+    <h2>What Our <span>Customers Say</span></h2>
+  </div>
+  <div class="rv-grid">
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"Tulsa Mobile Mechanic absolutely earned this review! I have a 2014 Mercedes E350 and was dealing with multiple issues at once including a flashing check engine light, misfires, a coolant leak, suspension clunking, and AC not working. Instead of upselling me or throwing random par"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">A</div>
+            <div><strong class="rv-name">Alahandro Harris</strong><span class="rv-meta">Google · 3 weeks ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"I don't own all the expensive diagnostic tools so to avoid spending an arm and a leg problem solving through parts i called these guys. They were at my house on a SATURDAY within the hour. Helped me find my issue for the low price of $75. I was able to order the parts and get mys"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">K</div>
+            <div><strong class="rv-name">Kyndal Sekimi-Tipton</strong><span class="rv-meta">Google · a month ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"Fix it right Mobile mechanics are amazing! They were very quick to get out and Run a diagnostic. They were thorough and went from top to bottom, and the price was great. Ended up we needed the engine replaced. We did research and asked for a quote from them. Their prices were com"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">A</div>
+            <div><strong class="rv-name">Amy Pat</strong><span class="rv-meta">Google · 8 months ago</span></div>
+          </div>
+        </div></div>
 </section>
 
 <section class="contact fade-up" id="contact">
