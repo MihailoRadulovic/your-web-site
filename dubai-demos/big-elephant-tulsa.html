@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Big Elephant — Electrical Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2e4a;--navy2:#162640;--navy3:#0f1e30;
+  --orange:#f97316;--orange2:#ea6c0a;--orange-faint:rgba(249,115,22,.08);
+  --white:#fff;--off:#f8f9fc;--light:#f1f5f9;
+  --text:#2d3748;--muted:#718096;--border:#e2e8f0
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.el-container{max-width:1200px;margin:0 auto;padding:0 5%}
+.el-sec-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.6rem}
+.el-sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:1.5rem}
+.el-sec-title span{color:var(--orange)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}
+.fade-up.visible{opacity:1;transform:none}
+.el-btn-orange{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange);color:#fff;padding:.75rem 2rem;border-radius:6px;font-weight:700;font-family:'Poppins',sans-serif;font-size:.9rem;transition:all .2s;border:none;cursor:pointer}
+.el-btn-orange:hover{background:var(--orange2);transform:translateY(-2px)}
+.el-btn-outline{display:inline-flex;align-items:center;gap:.5rem;border:2px solid rgba(255,255,255,.35);color:#fff;padding:.75rem 2rem;border-radius:6px;font-weight:600;font-size:.9rem;transition:all .2s}
+.el-btn-outline:hover{border-color:#fff;transform:translateY(-2px)}
+/* TOPBAR */
+.el-topbar{background:var(--navy);padding:.5rem 5%;display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:rgba(255,255,255,.7)}
+.el-topbar a{color:rgba(255,255,255,.7);transition:color .2s}
+.el-topbar a:hover{color:#fff}
+.el-topbar-info{display:flex;gap:1.5rem;flex-wrap:wrap}
+.el-topbar-item{display:flex;align-items:center;gap:.4rem}
+/* NAV */
+.el-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:.85rem 5%;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+.el-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.el-logo{display:flex;align-items:center;gap:.6rem;font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;color:var(--navy)}
+.el-logo-icon{background:var(--orange);color:#fff;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.el-logo span{color:var(--orange)}
+.el-nav-links{display:flex;gap:2rem}
+.el-nav-links a{color:var(--muted);font-size:.88rem;font-weight:500;transition:color .2s}
+.el-nav-links a:hover{color:var(--navy)}
+.el-nav-cta{background:var(--orange);color:#fff;padding:.5rem 1.4rem;border-radius:6px;font-weight:700;font-size:.85rem;font-family:'Poppins',sans-serif;transition:background .2s}
+.el-nav-cta:hover{background:var(--orange2)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy)}
+/* HERO */
+.el-hero{min-height:88vh;position:relative;display:flex;align-items:center;padding:5rem 5%}
+.el-hero-bg{position:absolute;inset:0;z-index:0}
+.el-hero-bg img{object-position:center 40%}
+.el-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(15,30,48,.92) 50%,rgba(15,30,48,.55) 100%);z-index:1}
+.el-hero-content{position:relative;z-index:2;max-width:640px}
+.el-hero-eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:1rem}
+.el-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.2rem}
+.el-hero h1 .el-hl{color:var(--orange)}
+.el-hero-sub{color:rgba(255,255,255,.65);font-size:1rem;margin-bottom:2.5rem;max-width:480px}
+.el-hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.el-hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.el-hero-stat strong{display:block;font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:800;color:var(--orange)}
+.el-hero-stat span{font-size:.78rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em}
+/* QUICK FORM */
+.el-quick-form{background:#fff;box-shadow:0 4px 30px rgba(0,0,0,.12);padding:1.5rem 5%;position:relative;z-index:10}
+.el-qf-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr auto;gap:1rem;align-items:end}
+.el-qf-group label{font-size:.72rem;color:var(--muted);display:block;margin-bottom:.35rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.el-qf-group input,.el-qf-group select{width:100%;background:var(--off);border:1.5px solid var(--border);border-radius:6px;padding:.65rem .9rem;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.el-qf-group input:focus,.el-qf-group select:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-faint)}
+.el-qf-btn{background:var(--orange);color:#fff;border:none;padding:.7rem 1.8rem;border-radius:6px;font-weight:700;font-family:'Poppins',sans-serif;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:background .2s;text-transform:uppercase;letter-spacing:.05em}
+.el-qf-btn:hover{background:var(--orange2)}
+/* ABOUT */
+.el-about{padding:6rem 5%;background:var(--off);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.el-about-img{position:relative;height:440px;border-radius:16px;overflow:hidden}
+.el-about-badge{position:absolute;top:2rem;left:-1rem;background:var(--orange);color:#fff;padding:.8rem 1.5rem;border-radius:0 8px 8px 0;font-family:'Poppins',sans-serif;font-weight:800;text-align:center;font-size:.85rem;line-height:1.2}
+.el-about-badge strong{display:block;font-size:1.8rem;line-height:1}
+.el-about h2{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:1rem}
+.el-about h2 span{color:var(--orange)}
+.el-about p{color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.el-features{list-style:none;margin:1.5rem 0}
+.el-features li{display:flex;align-items:center;gap:.8rem;padding:.5rem 0;color:var(--text);font-size:.9rem;font-weight:500}
+.el-features li::before{content:'✓';background:var(--orange);color:#fff;width:1.4rem;height:1.4rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0}
+/* SERVICES */
+.el-services{padding:6rem 5%;background:var(--white)}
+.el-services-head{text-align:center;margin-bottom:3rem}
+.el-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
+.el-svc-card{background:var(--off);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center;transition:all .3s}
+.el-svc-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 8px 30px var(--orange-faint)}
+.el-svc-icon{width:3.5rem;height:3.5rem;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 1.2rem}
+.el-svc-card h3{font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.5rem;font-size:.95rem}
+.el-svc-card p{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:.8rem}
+.el-svc-price{display:inline-block;background:var(--orange-faint);color:var(--orange);font-size:.8rem;font-weight:700;padding:.25rem .8rem;border-radius:999px;font-family:'Poppins',sans-serif}
+/* PROJECTS */
+.el-projects{padding:6rem 5%;background:var(--light)}
+.el-projects-head{text-align:center;margin-bottom:3rem}
+.el-proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
+.el-proj-card{border-radius:14px;overflow:hidden;position:relative;cursor:pointer}
+.el-proj-card:hover img{transform:scale(1.06)}
+.el-proj-img{height:260px;overflow:hidden}
+.el-proj-img img{transition:transform .5s}
+.el-proj-label{position:absolute;bottom:1rem;left:1rem;background:var(--orange);color:#fff;padding:.3rem .9rem;border-radius:4px;font-size:.78rem;font-weight:700;font-family:'Poppins',sans-serif;letter-spacing:.08em;text-transform:uppercase}
+/* REVIEWS */
+.el-reviews{padding:6rem 5%;background:var(--off)}
+.el-reviews .el-container{text-align:center}
+.el-rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;text-align:left}
+.el-rv-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:transform .3s,box-shadow .3s}
+.el-rv-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.07)}
+.el-rv-stars{margin-bottom:1rem;font-size:.95rem}
+.el-rv-text{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.el-rv-foot{display:flex;align-items:center;gap:.8rem;border-top:1px solid var(--border);padding-top:1rem}
+.el-rv-avatar{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.el-rv-foot strong{display:block;color:var(--navy);font-size:.85rem}
+.el-rv-foot span{font-size:.75rem;color:var(--muted)}
+/* CONTACT */
+.el-contact{padding:6rem 5%;background:var(--white);display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start}
+.el-contact h2{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
+.el-contact-sub{color:var(--muted);margin-bottom:2rem;line-height:1.6}
+.el-ci{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.el-ci-icon{width:2.5rem;height:2.5rem;background:var(--orange-faint);border:1px solid rgba(249,115,22,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.el-ci strong{display:block;color:var(--navy);font-size:.88rem;margin-bottom:.2rem}
+.el-ci span{font-size:.83rem;color:var(--muted);line-height:1.5}
+.el-form-box{background:var(--off);border:1px solid var(--border);border-radius:16px;padding:2.5rem}
+.el-form-box h3{font-family:'Poppins',sans-serif;font-weight:800;color:var(--navy);margin-bottom:.3rem;font-size:1.2rem}
+.el-form-sub{font-size:.83rem;color:var(--muted);margin-bottom:1.8rem}
+.el-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.el-fg{margin-bottom:1rem}
+.el-fg label{font-size:.75rem;color:var(--muted);display:block;margin-bottom:.4rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.el-fg input,.el-fg select,.el-fg textarea{width:100%;background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--text);font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.el-fg input:focus,.el-fg select:focus,.el-fg textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-faint)}
+.el-fg textarea{height:110px;resize:vertical}
+.el-form-success{display:none;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:1rem;text-align:center;color:#c2410c;font-weight:600;margin-top:1rem}
+.el-submit{width:100%;padding:.9rem;background:var(--orange);color:#fff;border:none;border-radius:8px;font-weight:700;font-family:'Poppins',sans-serif;font-size:.9rem;cursor:pointer;transition:all .2s;margin-top:.5rem;letter-spacing:.03em}
+.el-submit:hover{background:var(--orange2);transform:translateY(-2px)}
+/* FOOTER */
+.el-footer{background:var(--navy3);padding:4rem 5% 2rem}
+.el-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.el-footer-brand p{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.7;max-width:260px;margin-top:.8rem}
+.el-footer-logo{display:flex;align-items:center;gap:.6rem;font-family:'Poppins',sans-serif;font-weight:800;color:#fff;font-size:1.1rem}
+.el-footer-logo .el-logo-icon{background:var(--orange)}
+.el-footer h4{font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:.85rem;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.08em}
+.el-footer ul{list-style:none}
+.el-footer li{margin-bottom:.5rem}
+.el-footer a{font-size:.83rem;color:rgba(255,255,255,.45);transition:color .2s}
+.el-footer a:hover{color:#fff}
+.el-footer-copy{display:flex;justify-content:space-between;padding-top:1.5rem;font-size:.78rem;color:rgba(255,255,255,.35)}
+@media(max-width:960px){
+  .el-nav .el-nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:center;justify-content:center;gap:2rem;z-index:200}
+  .el-nav .el-nav-links.open{display:flex}
+  .hamburger{display:flex;z-index:201}
+  .el-topbar{display:none}
+  .el-hero{padding:4rem 5%}
+  .el-qf-inner{grid-template-columns:1fr}
+  .el-about{grid-template-columns:1fr}
+  .el-about-img{height:300px}
+  .el-svc-grid{grid-template-columns:1fr 1fr}
+  .el-proj-grid{grid-template-columns:1fr}
+  .el-rv-grid{grid-template-columns:1fr}
+  .el-contact{grid-template-columns:1fr}
+  .el-footer-grid{grid-template-columns:1fr 1fr}
+  .el-form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .el-svc-grid{grid-template-columns:1fr}
+  .el-footer-grid{grid-template-columns:1fr}
+  .el-hero-stats{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="el-topbar">
+  <div class="el-topbar-info">
+    <span class="el-topbar-item">📍 Empire Heights Tower B - Business Bay - Downtown Dubai - Dubai - United Arab Emirates</span>
+    <a href="tel:" class="el-topbar-item">📞 Call Us</a>
+  </div>
+  <span style="font-size:.75rem">⭐ 4.9 Rating — Licensed &amp; Insured</span>
+</div>
+
+<nav class="el-nav" id="elNav">
+  <div class="el-logo"><div class="el-logo-icon">⚡</div>Big <span>Elephant</span></div>
+  <div class="el-nav-links" id="elNavLinks">
+    <a href="#about">About</a><a href="#services">Services</a>
+    <a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <a href="tel:" class="el-nav-cta">📞 Call Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="el-hero">
+  <div class="el-hero-bg"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=80" alt="Electrician" loading="eager"></div>
+  <div class="el-hero-overlay"></div>
+  <div class="el-hero-content fade-up">
+    <div class="el-hero-eyebrow">We are masters of service</div>
+    <h1>Fast <span class="el-hl">Electrical</span> Service Provider</h1>
+    <p class="el-hero-sub">Fast Electrical Service Provider — licensed, insured, and available when you need us most.</p>
+    <div class="el-hero-btns">
+      <a href="#contact" class="el-btn-orange">Book &amp; Services →</a>
+      <a href="#services" class="el-btn-outline">Our Services</a>
+    </div>
+    <div class="el-hero-stats">
+      <div class="el-hero-stat"><strong>10+</strong><span>Years Experience</span></div>
+      <div class="el-hero-stat"><strong>4.9★</strong><span>Google Rating</span></div>
+      <div class="el-hero-stat"><strong>24/7</strong><span>Emergency</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="el-quick-form">
+  <form class="el-qf-inner" onsubmit="handleQuickForm(event)">
+    <div class="el-qf-group"><label for="qf1">Your Name</label><input type="text" id="qf1" name="name" autocomplete="name" placeholder="John Smith" required></div>
+    <div class="el-qf-group"><label for="qf2">Phone Number</label><input type="tel" id="qf2" name="phone" autocomplete="tel" placeholder="Call Us" required></div>
+    <div class="el-qf-group"><label for="qf3">Service Needed</label>
+      <select id="qf3" name="service">
+        <option value="">Select service...</option>
+        <option>Panel Upgrade</option><option>Lighting Installation</option>
+        <option>Outlet &amp; Wiring</option><option>Safety Inspection</option>
+        <option>Emergency Service</option><option>Commercial Work</option>
+      </select>
+    </div>
+    <div class="el-qf-group" style="display:flex;align-items:flex-end">
+      <button type="submit" class="el-qf-btn" style="width:100%">Get Service →</button>
+    </div>
+  </form>
+</div>
+
+<section class="el-about fade-up" id="about">
+  <div class="el-about-img">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Electrician at Work" loading="lazy">
+    <div class="el-about-badge"><strong>10+</strong>Years of<br>Experience</div>
+  </div>
+  <div>
+    <div class="el-sec-label">About Us</div>
+    <h2 class="el-sec-title">10 Years of Experience In Giving <span>Best Services</span></h2>
+    <p>At Big Elephant, we take pride in delivering safe, reliable, and professional electrical services to homes and businesses across the area. Our licensed electricians are trained to handle everything from minor repairs to full electrical installations.</p>
+    <ul class="el-features">
+      <li>The Best Quality Services</li>
+      <li>Warranty &amp; Maintenance Included</li>
+      <li>Become a Master Electrician</li>
+      <li>Added an office location and 24-hour service</li>
+      <li>Industry Recognition &amp; Licensed</li>
+    </ul>
+    <a href="#contact" class="el-btn-orange" style="margin-top:.5rem">About More →</a>
+  </div>
+</section>
+
+<section class="el-services fade-up" id="services">
+  <div class="el-services-head">
+    <div class="el-sec-label">OUR SERVICES</div>
+    <h2 class="el-sec-title">Services We <span>Provide</span></h2>
+  </div>
+  <div class="el-svc-grid">
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">⚡</div>
+          <h3>Panel Upgrade</h3>
+          <p>Upgrade your electrical panel for modern demands</p>
+          <span class="el-svc-price">from $800</span>
+        </div>
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">💡</div>
+          <h3>Lighting Installation</h3>
+          <p>Interior & exterior lighting design & installation</p>
+          <span class="el-svc-price">from $150</span>
+        </div>
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">🔌</div>
+          <h3>Outlet & Wiring</h3>
+          <p>New outlets, circuits & wiring installation</p>
+          <span class="el-svc-price">from $120</span>
+        </div>
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">🛡️</div>
+          <h3>Safety Inspection</h3>
+          <p>Full electrical safety audit & compliance report</p>
+          <span class="el-svc-price">from $99</span>
+        </div>
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">🚨</div>
+          <h3>Emergency Service</h3>
+          <p>24/7 emergency electrical repairs — fast response</p>
+          <span class="el-svc-price">from $150</span>
+        </div>
+        <div class="el-svc-card fade-up">
+          <div class="el-svc-icon">🏢</div>
+          <h3>Commercial Work</h3>
+          <p>Offices, retail spaces & industrial electrical</p>
+          <span class="el-svc-price">Custom</span>
+        </div></div>
+</section>
+
+<section class="el-projects fade-up" id="projects">
+  <div class="el-projects-head">
+    <div class="el-sec-label">OUR WORK</div>
+    <h2 class="el-sec-title">Our Recent <span>Projects</span></h2>
+  </div>
+  <div class="el-proj-grid">
+        <div class="el-proj-card fade-up">
+          <div class="el-proj-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Electrical" loading="lazy"></div>
+          <div class="el-proj-label">Electrical</div>
+        </div>
+        <div class="el-proj-card fade-up">
+          <div class="el-proj-img"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80" alt="Wiring" loading="lazy"></div>
+          <div class="el-proj-label">Wiring</div>
+        </div>
+        <div class="el-proj-card fade-up">
+          <div class="el-proj-img"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" alt="Smart Home" loading="lazy"></div>
+          <div class="el-proj-label">Smart Home</div>
+        </div></div>
+</section>
+
+
+<section class="el-reviews fade-up">
+  <div class="el-container">
+    <div class="el-sec-label">TESTIMONIALS</div>
+    <h2 class="el-sec-title">What Our Customers <span>Say About Us</span></h2>
+    <div class="el-rv-grid">
+          <div class="el-rv-card fade-up">
+            <div class="el-rv-stars"><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span></div>
+            <p class="el-rv-text">"Punctual, professional, not messy they cover and clean after.
+Chris and Kent did a good job, smiling, kind, polite. Great service
+
+We were not using the AC much in the past couple of months and when I was turning on I was feeling like a humid smell, today after they cleaned it th"</p>
+            <div class="el-rv-foot">
+              <div class="el-rv-avatar">A</div>
+              <div><strong>Astrid Alvarado</strong><span>4 years ago · Google</span></div>
+            </div>
+          </div>
+          <div class="el-rv-card fade-up">
+            <div class="el-rv-stars"><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span></div>
+            <p class="el-rv-text">"Very professional company! the team did the job very quickly, the whole procedure leaves a lot of dust all around but the team of 4 staff (Cris, Bronzon, Kent and Allan) left all very clean. Plus they provide pictures of before/after, just brilliant! Highly recommend"</p>
+            <div class="el-rv-foot">
+              <div class="el-rv-avatar">M</div>
+              <div><strong>Melissa Pertusi</strong><span>2 years ago · Google</span></div>
+            </div>
+          </div>
+          <div class="el-rv-card fade-up">
+            <div class="el-rv-stars"><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span><span style="color:#f97316">★</span></div>
+            <p class="el-rv-text">"Big Elephant offers a top-notch service but is surprisingly not expensive. Among all the other companies we've booked to help us eradicate the rodents in our office, only this company hit the nail on the head.
+Some would only put pesticides that would last for days. But Big Eleph"</p>
+            <div class="el-rv-foot">
+              <div class="el-rv-avatar">B</div>
+              <div><strong>beirmae B</strong><span>3 years ago · Google</span></div>
+            </div>
+          </div></div>
+  </div>
+</section>
+
+<section class="el-contact fade-up" id="contact">
+  <div>
+    <div class="el-sec-label">GET IN TOUCH</div>
+    <h2>Book Your Electrician</h2>
+    <p class="el-contact-sub">Need electrical work done right? Contact us for a free estimate. Licensed, insured, fast response.</p>
+    <div class="el-ci"><div class="el-ci-icon">📍</div><div><strong>Location</strong><span>Empire Heights Tower B - Business Bay - Downtown Dubai - Dubai - United Arab Emirates</span></div></div>
+    <div class="el-ci"><div class="el-ci-icon">📞</div><div><strong>Phone</strong><span><a href="tel:" style="color:var(--orange);font-weight:600">Call Us</a></span></div></div>
+    <div class="el-ci"><div class="el-ci-icon">🕐</div><div><strong>Hours</strong><span>Open 24/7</span></div></div>
+  </div>
+  <div class="el-form-box">
+    <h3>Request A Free Estimate</h3>
+    <p class="el-form-sub">Fill out the form and we'll contact you within 2 hours.</p>
+    <form id="elForm" onsubmit="handleSubmit(event)">
+      <div class="el-form-row">
+        <div class="el-fg"><label for="ef1">Full Name</label><input type="text" id="ef1" name="full_name" autocomplete="name" placeholder="John Smith" required></div>
+        <div class="el-fg"><label for="ef2">Phone</label><input type="tel" id="ef2" name="phone" autocomplete="tel" placeholder="Call Us" required></div>
+      </div>
+      <div class="el-fg"><label for="ef3">Service Needed</label>
+        <select id="ef3" name="service" required>
+          <option value="">Select a service...</option>
+          <option>Panel Upgrade — from $800</option>
+          <option>Lighting Installation — from $150</option>
+          <option>Outlet &amp; Wiring — from $120</option>
+          <option>Safety Inspection — from $99</option>
+          <option>Emergency Service — from $150</option>
+          <option>Commercial Work — Custom</option>
+          <option>Other / Free Estimate</option>
+        </select>
+      </div>
+      <div class="el-fg"><label for="ef4">Preferred Date</label><input type="date" id="ef4" name="preferred_date" autocomplete="off"></div>
+      <div class="el-fg"><label for="ef5">Problem Description &amp; Comments</label><textarea id="ef5" name="message" placeholder="Describe the electrical issue or project — location in home, symptoms, urgency..." autocomplete="off"></textarea></div>
+      <button type="submit" class="el-submit">Send Request →</button>
+      <div class="el-form-success" id="elFormSuccess">✓ Request received! We'll call you back within 2 hours.</div>
+    </form>
+  </div>
+</section>
+
+<footer class="el-footer">
+  <div class="el-footer-grid">
+    <div class="el-footer-brand">
+      <div class="el-footer-logo"><div class="el-logo-icon">⚡</div>Big Elephant</div>
+      <p>Licensed electricians delivering safe, reliable electrical services for homes and businesses since 2014.</p>
+    </div>
+    <div><h4>Our Services</h4><ul>
+      <li><a href="#services">Panel Upgrade</a></li>
+      <li><a href="#services">Lighting Installation</a></li>
+      <li><a href="#services">Outlet &amp; Wiring</a></li>
+      <li><a href="#services">Safety Inspection</a></li>
+      <li><a href="#services">Emergency Service</a></li>
+    </ul></div>
+    <div><h4>Contact Info</h4><ul>
+      <li><a href="tel:">📞 Call Us</a></li>
+      <li><span style="color:rgba(255,255,255,.4)">📍 Empire Heights Tower B - Business Bay - Downtown Dubai - Dubai - United Arab Emirates</span></li>
+      <li><span style="color:rgba(255,255,255,.4)">🕐 Open 24/7</span></li>
+    </ul></div>
+    <div><h4>Recent Posts</h4><ul>
+      <li><a href="#about">Electrical Safety Tips for Homeowners</a></li>
+      <li><a href="#services">When To Upgrade Your Panel</a></li>
+      <li><a href="#services">Finding the Right Electrician</a></li>
+    </ul></div>
+  </div>
+  <div class="el-footer-copy"><span>© 2024 Big Elephant. All rights reserved.</span><span>Licensed &amp; Insured Electrical Contractor</span></div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const nav=document.getElementById('elNav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('elNavLinks').classList.toggle('open'));
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+  document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+});
+function handleQuickForm(e){e.preventDefault();alert('Request sent! We will call you back shortly.');e.target.reset();}
+function handleSubmit(e){
+  e.preventDefault();
+  const s=document.getElementById('elFormSuccess');
+  s.style.display='block';e.target.reset();
+  setTimeout(()=>s.style.display='none',3500);
+}
+</script>
+</body>
+</html>

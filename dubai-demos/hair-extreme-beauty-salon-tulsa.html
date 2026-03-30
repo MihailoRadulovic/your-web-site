@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hair Extreme Beauty Salon — Service Tulsa, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8fafc;--bg2:#f1f5f9;--white:#fff;
+  --dark:#0f172a;--dark2:#1e293b;
+  --accent:#2563eb;--accent2:#3b82f6;
+  --text:#334155;--muted:#94a3b8;
+  --border:rgba(37,99,235,.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(0,0,0,.08);padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between}
+nav.scrolled{box-shadow:0 4px 30px rgba(37,99,235,.12)}
+.nav-logo{font-weight:700;color:var(--dark);font-size:1rem;display:flex;align-items:center;gap:8px}
+.nav-dot{width:8px;height:8px;background:var(--accent);border-radius:50%}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:var(--text);font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#fff;padding:.6rem 1.4rem;border-radius:8px;font-weight:600;font-size:.9rem;transition:background .2s}
+.nav-cta:hover{background:var(--accent2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{width:24px;height:2px;background:var(--dark);transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#f8fafc 0%,#eff6ff 100%);display:flex;align-items:center;padding:0 5%;padding-top:68px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.1) 0%,transparent 70%);pointer-events:none}
+.hero-content{max-width:600px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);color:var(--accent);font-size:.8rem;padding:.4rem 1rem;border-radius:50px;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:1rem}
+.hero h1 span{color:var(--accent)}
+.hero-sub{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;max-width:460px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-primary{background:var(--accent);color:#fff;padding:.85rem 2rem;border-radius:8px;font-weight:600;transition:background .2s;border:none;cursor:pointer;font-size:1rem}
+.btn-primary:hover{background:var(--accent2)}
+.btn-secondary{border:2px solid var(--accent);color:var(--accent);padding:.85rem 2rem;border-radius:8px;font-weight:500;transition:all .2s;font-size:1rem}
+.btn-secondary:hover{background:var(--accent);color:#fff}
+.hero-proof{display:flex;align-items:center;gap:.8rem;color:var(--muted);font-size:.9rem}
+.stars{color:#f59e0b;font-size:1.1rem}
+
+/* STRIP */
+.strip{background:var(--dark);overflow:hidden;padding:.7rem 0;white-space:nowrap}
+.strip-inner{display:inline-flex;gap:3rem;animation:scroll 25s linear infinite}
+.strip-item{color:rgba(255,255,255,.5);font-size:.85rem;letter-spacing:.5px}
+.strip-item span{color:var(--accent2)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{padding:6rem 5%;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-deco{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:20px;height:380px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+.about-deco .big-init{font-family:'Playfair Display',serif;font-size:6rem;font-weight:700;color:rgba(255,255,255,.3)}
+.about-deco .rating-badge{background:rgba(255,255,255,.15);border-radius:12px;padding:1rem 1.5rem;text-align:center}
+.about-deco .rating-num{font-size:2rem;font-weight:700;color:#fff}
+.about-deco .rating-lbl{font-size:.8rem;color:rgba(255,255,255,.7)}
+.about-text .sec-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.about-text h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark);margin-bottom:1rem}
+.about-text p{color:var(--text);margin-bottom:1rem;line-height:1.7}
+.stats-row{display:flex;gap:2rem;margin:1.5rem 0;flex-wrap:wrap}
+.stat-item .num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--accent);font-weight:700}
+.stat-item .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* SERVICES */
+.services{padding:6rem 5%;background:var(--bg2)}
+.section-head{text-align:center;margin-bottom:3rem}
+.section-head .sec-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.section-head h2{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--dark)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:2rem;transition:border-color .25s,box-shadow .25s,transform .25s}
+.svc-card:hover{border-color:var(--accent);box-shadow:0 8px 30px rgba(37,99,235,.1);transform:translateY(-4px)}
+.svc-icon{font-size:2rem;margin-bottom:.8rem}
+.svc-name{font-weight:700;color:var(--dark);font-size:1rem;margin-bottom:.4rem}
+.svc-desc{color:var(--muted);font-size:.88rem;margin-bottom:.8rem;line-height:1.5}
+.svc-price{font-size:.85rem;color:var(--accent);font-weight:600;background:rgba(37,99,235,.07);padding:.25rem .7rem;border-radius:50px;display:inline-block}
+
+/* FEATURES */
+.features{padding:5rem 5%;background:var(--white)}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
+.feat-card{text-align:center;padding:2rem 1.5rem;border:1px solid #e2e8f0;border-radius:12px;transition:box-shadow .25s}
+.feat-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.feat-icon{font-size:2.2rem;margin-bottom:.8rem}
+.feat-card h4{font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.feat-card p{color:var(--muted);font-size:.88rem;line-height:1.5}
+
+/* CONTACT */
+.contact{padding:6rem 5%;background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info .sec-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.contact-info h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark);margin-bottom:2rem}
+.info-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.info-icon{width:44px;height:44px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.info-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem}
+.info-val{font-size:.92rem;color:var(--dark)}
+.contact-form-wrap{background:var(--white);border-radius:16px;padding:2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+.contact-form-wrap h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--dark);margin-bottom:1.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg);border:1px solid #e2e8f0;border-radius:8px;padding:.75rem 1rem;color:var(--dark);font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-success{display:none;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:1rem;text-align:center;color:#16a34a;margin-bottom:1rem}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{color:#fff;font-weight:700;font-size:1rem}
+.foot-copy{font-size:.85rem}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:.85rem;transition:color .2s}
+.foot-links a:hover{color:var(--accent2)}
+
+/* REVIEWS */
+.rv-section{padding:5rem 5%;background:var(--bg2)}
+.rv-head{text-align:center;margin-bottom:2.5rem}
+.rv-label{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--accent);margin-bottom:.5rem}
+.rv-head h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--dark)}
+.rv-head h2 span{color:var(--accent)}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rv-card{background:var(--white);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:1.6rem;transition:transform .2s,box-shadow .2s}
+.rv-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(37,99,235,.1)}
+.rv-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.7rem}
+.rv-text{color:var(--text);font-size:.9rem;line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.rv-author{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0}
+.rv-name{display:block;color:var(--dark);font-size:.88rem;font-weight:600}
+.rv-meta{display:block;font-size:.75rem;color:var(--muted)}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#fff;padding:1.5rem 5%;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+  .nav-links.open .nav-cta{display:block;margin-top:.5rem;text-align:center}
+  .svc-grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr}
+  .about-deco{height:200px}
+  .about-deco .big-init{font-size:4rem}
+  .rv-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo"><div class="nav-dot"></div>Hair Extreme Beauty Salon</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+971568996027" class="nav-cta">📞 056 899 6027</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Service · Tulsa, OK</div>
+    <h1>Hair <span>Extreme Beauty Salon</span></h1>
+    <p class="hero-sub">Quality Service You Can Rely On — Locally owned and operated, serving Tulsa and surrounding areas.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+      <a href="#services" class="btn-secondary">Our Services ↓</a>
+    </div>
+    <div class="hero-proof">
+      <span class="stars">★★★★★</span>
+      <span>4.2 rating · 173+ happy customers</span>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item"><span>✦</span> Hair Extreme Beauty Salon</span>
+    <span class="strip-item"><span>📍</span> Street # 12D - Al Karama - Dubai - United Arab Emirates</span>
+    <span class="strip-item"><span>📞</span> 056 899 6027</span>
+    <span class="strip-item"><span>⭐</span> 4.2 Stars</span>
+    <span class="strip-item"><span>✦</span> Service</span>
+    <span class="strip-item"><span>✦</span> Hair Extreme Beauty Salon</span>
+    <span class="strip-item"><span>📍</span> Street # 12D - Al Karama - Dubai - United Arab Emirates</span>
+    <span class="strip-item"><span>📞</span> 056 899 6027</span>
+    <span class="strip-item"><span>⭐</span> 4.2 Stars</span>
+    <span class="strip-item"><span>✦</span> Service</span>
+  </div>
+</div>
+
+<section class="about fade-up" id="about">
+  <div class="about-deco">
+    <div class="big-init">HE</div>
+    <div class="rating-badge"><div class="rating-num">4.2★</div><div class="rating-lbl">Google Rating</div></div>
+  </div>
+  <div class="about-text">
+    <div class="sec-label">About Us</div>
+    <h2>Hair Extreme Beauty Salon</h2>
+    <p>We are a trusted service company serving Tulsa, OK and surrounding communities. Our team takes pride in delivering professional, reliable service at a fair price — every single time.</p>
+    <p>Whether you need a one-time service or a recurring plan, we show up on time, do the job right, and leave you completely satisfied. Your home or business deserves the best care.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="num">10+</div><div class="lbl">Years in Business</div></div>
+      <div class="stat-item"><div class="num">173+</div><div class="lbl">Happy Customers</div></div>
+      <div class="stat-item"><div class="num">4.2★</div><div class="lbl">Google Rating</div></div>
+    </div>
+    <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+  </div>
+</section>
+
+<section class="services fade-up" id="services">
+  <div class="section-head">
+    <div class="sec-label">What We Offer</div>
+    <h2>Our Services</h2>
+  </div>
+  <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon">⭐</div>
+          <div class="svc-name">Consultation</div>
+          <p class="svc-desc">Free on-site assessment & estimate</p>
+          <div class="svc-price">Free</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🔧</div>
+          <div class="svc-name">General Service</div>
+          <p class="svc-desc">Full-service repairs & maintenance</p>
+          <div class="svc-price">from $75/hr</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">✅</div>
+          <div class="svc-name">Inspection</div>
+          <p class="svc-desc">Detailed inspection report provided</p>
+          <div class="svc-price">from $99</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🛠️</div>
+          <div class="svc-name">Emergency Service</div>
+          <p class="svc-desc">Same-day emergency response</p>
+          <div class="svc-price">from $120</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📋</div>
+          <div class="svc-name">Maintenance Plan</div>
+          <p class="svc-desc">Monthly or quarterly service plan</p>
+          <div class="svc-price">Custom</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🤝</div>
+          <div class="svc-name">Commercial Service</div>
+          <p class="svc-desc">Business & commercial accounts welcome</p>
+          <div class="svc-price">Custom</div>
+        </div></div>
+</section>
+
+<section class="features fade-up">
+  <div class="section-head">
+    <div class="sec-label">Why Choose Us</div>
+    <h2>The Hair Difference</h2>
+  </div>
+  <div class="feat-grid"><div class="feat-card"><div class="feat-icon">🏆</div><h4>Licensed & Insured</h4><p>Fully licensed, bonded and insured for your peace of mind.</p></div><div class="feat-card"><div class="feat-icon">⚡</div><h4>Fast Response</h4><p>Quick scheduling — often same or next day available.</p></div><div class="feat-card"><div class="feat-icon">💰</div><h4>Fair Pricing</h4><p>Transparent, upfront pricing with no hidden fees.</p></div><div class="feat-card"><div class="feat-icon">⭐</div><h4>5-Star Service</h4><p>Consistently rated 5 stars by our happy customers.</p></div></div>
+</section>
+
+
+<section class="rv-section fade-up">
+  <div class="rv-head">
+    <div class="rv-label">CUSTOMER REVIEWS</div>
+    <h2>What Our <span>Customers Say</span></h2>
+  </div>
+  <div class="rv-grid">
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"I  recently got an anti-frizz treatment done in Hair Extreme  Salon and I’m extremely satisfied with the results. My hair is noticeably smoother, shinier, and frizz-free, even in humidity. The stylist Tessa was knowledgeable, used good-quality products, and took the time to under"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">M</div>
+            <div><strong class="rv-name">Manju Manoj</strong><span class="rv-meta">Google · 2 months ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"Thank you so much to Hair Extreme Salon for the amazing service. The customer service was truly excellent, and the staff were very friendly and professional. They styled my hair in such a beautiful way — I absolutely loved the final look!
+Highly recommended for anyone who wants a"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">N</div>
+            <div><strong class="rv-name">Najma Nizam</strong><span class="rv-meta">Google · a month ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"I had an amazing experience at Hair Extreme beauty saloon❤️. The staffs are very friendly and kind. Especially Tesa chechi and sreelekshmi, they always greet me with happy faces. I really happy the services they did for me. They are using only professional products. Highly recomm"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#2563eb">S</div>
+            <div><strong class="rv-name">Sneha Yohannan</strong><span class="rv-meta">Google · 3 months ago</span></div>
+          </div>
+        </div></div>
+</section>
+
+<section class="contact fade-up" id="contact">
+  <div class="contact-info">
+    <div class="sec-label">Get In Touch</div>
+    <h2>Request a Free Quote</h2>
+    <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Address</div><div class="info-val">Street # 12D - Al Karama - Dubai - United Arab Emirates</div></div></div>
+    <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val"><a href="tel:+971568996027" style="color:var(--accent)">056 899 6027</a></div></div></div>
+    <div class="info-row"><div class="info-icon">🕐</div><div><div class="info-label">Hours</div><div class="info-val" style="font-size:.88rem;line-height:1.8">Tue: 10:30 AM – 10:00 PM &nbsp;|&nbsp; Wed: 10:30 AM – 10:00 PM &nbsp;|&nbsp; Thu: 10:30 AM – 10:00 PM &nbsp;|&nbsp; Fri: 10:30 AM – 10:00 PM &nbsp;|&nbsp; Sat: 10:00 AM – 10:00 PM &nbsp;|&nbsp; Sun: 10:00 AM – 10:00 PM</div></div></div>
+    <div class="info-row"><div class="info-icon">⭐</div><div><div class="info-label">Rating</div><div class="info-val">4.2 Stars · 173+ Reviews</div></div></div>
+  </div>
+  <div class="contact-form-wrap">
+    <h3>Free Estimate Request</h3>
+    <div class="form-success" id="formSuccess">✓ Request sent! We'll get back to you soon.</div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Smith" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(918) 555-0000" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Service Address</label><input type="text" placeholder="Your address in Tulsa, OK"></div>
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+      </div>
+      <div class="form-group"><label>Service Needed</label>
+        <select><option value="">Select a service...</option>
+          <option>Consultation</option><option>General Service</option><option>Inspection</option><option>Emergency Service</option><option>Maintenance Plan</option><option>Commercial Service</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Additional Notes</label><textarea placeholder="Any additional details or questions..."></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;border-radius:8px;padding:1rem">Send Request →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">⭐ Hair Extreme Beauty Salon</div>
+  <div class="foot-copy">© 2025 Hair Extreme Beauty Salon · Tulsa, OK</div>
+  <div class="foot-links"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
+});
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const s=document.getElementById('formSuccess');
+  s.style.display='block';
+  this.reset();
+  setTimeout(()=>s.style.display='none',3500);
+});
+</script>
+</body>
+</html>

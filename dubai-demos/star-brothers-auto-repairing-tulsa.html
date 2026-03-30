@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Star Brothers Auto Repairing — Auto Repair Tulsa, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--dark:#111111;--dark2:#1a1a1a;
+  --red:#e52222;--red2:#cc1e1e;--red-faint:rgba(229,34,34,0.08);
+  --text:#e8e8e8;--muted:#888;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--black);border-bottom:2px solid var(--red);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 30px rgba(229,34,34,.2)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+.nav-logo .tag{background:var(--red);color:#fff;font-size:.7rem;padding:2px 7px;border-radius:3px;letter-spacing:1px}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:rgba(255,255,255,.65);font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--red);color:#fff;padding:.6rem 1.4rem;font-weight:600;font-size:.9rem;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s}
+.nav-cta:hover{background:var(--red2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{width:24px;height:2px;background:#fff;transition:.3s}
+
+/* HERO */
+.hero{height:100vh;background:linear-gradient(to right,rgba(10,10,10,.93) 50%,rgba(10,10,10,.5) 100%),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600&q=80') center/cover no-repeat;display:flex;align-items:center;padding:0 5%;padding-top:70px}
+.hero-content{max-width:620px}
+.hero-tag{background:var(--red-faint);border:1px solid var(--red);color:var(--red);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;padding:.4rem 1rem;display:inline-block;margin-bottom:1.5rem}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;line-height:1.1;margin-bottom:1rem}
+.hero h1 span{color:var(--red)}
+.hero-sub{color:rgba(255,255,255,.55);font-size:1.05rem;margin-bottom:2rem;max-width:480px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-red{background:var(--red);color:#fff;padding:.85rem 2rem;font-weight:600;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s;border:none;cursor:pointer;font-size:1rem}
+.btn-red:hover{background:var(--red2)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff;padding:.85rem 2rem;font-weight:500;transition:border-color .2s;font-size:1rem}
+.btn-outline:hover{border-color:#fff}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--red)}
+.hero-stat .lbl{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* SERVICES */
+.services{padding:6rem 5%;background:#f9f9f9}
+.services h2{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;color:#111;text-align:center;margin-bottom:.5rem}
+.services h2 span{color:var(--red)}
+.sec-sub{text-align:center;color:#666;margin-bottom:3rem}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:#fff;border:1px solid #eee;border-radius:8px;padding:1.8rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-top{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.svc-icon{font-size:1.8rem}
+.svc-top strong{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#111;display:block;font-size:1rem}
+.svc-price{font-size:.8rem;color:var(--red);font-weight:600}
+.svc-desc{font-size:.9rem;color:#666;line-height:1.5}
+
+/* BRANDS */
+.brands{padding:5rem 5%;background:var(--dark)}
+.brands h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;text-align:center;margin-bottom:.5rem}
+.brands h2 span{color:var(--red)}
+.brands-sub{text-align:center;color:var(--muted);margin-bottom:2.5rem;font-size:.95rem}
+.brands-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.brand-item{background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:.8rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.brand-item:hover{background:var(--red-faint);border-color:var(--red);color:#fff}
+
+/* ABOUT */
+.about{padding:6rem 5%;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img img{width:100%;height:420px;object-fit:cover;border-radius:8px}
+.about-text .sec-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:.8rem}
+.about-text h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:#111;margin-bottom:1rem}
+.about-text p{color:#555;margin-bottom:1rem;line-height:1.7}
+.checks{list-style:none;margin:1.5rem 0}
+.checks li{display:flex;align-items:center;gap:.7rem;color:#333;margin-bottom:.6rem;font-size:.95rem}
+.check-icon{width:22px;height:22px;background:var(--red);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;flex-shrink:0}
+
+/* CONTACT */
+.contact{padding:6rem 5%;background:var(--dark2);display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info .sec-label{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:.8rem}
+.contact-info h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;margin-bottom:2rem}
+.info-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.info-icon{width:42px;height:42px;background:var(--red-faint);border:1px solid rgba(229,34,34,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.info-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem}
+.info-val{font-size:.95rem;color:var(--text)}
+.contact-form{background:var(--dark);border-radius:12px;padding:2.5rem}
+.contact-form h3{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--dark2);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:.75rem 1rem;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .2s;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--red)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group select option{background:var(--dark2)}
+.form-success{display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);border-radius:6px;padding:1rem;text-align:center;color:#4ade80;margin-bottom:1rem}
+
+/* FOOTER */
+footer{background:var(--black);border-top:2px solid var(--red);padding:2rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:700}
+.foot-copy{color:var(--muted);font-size:.85rem}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{color:var(--muted);font-size:.85rem;transition:color .2s}
+.foot-links a:hover{color:var(--red)}
+
+/* REVIEWS */
+.rv-section{padding:5rem 5%;background:var(--dark2)}
+.rv-head{text-align:center;margin-bottom:2.5rem}
+.rv-label{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--red);margin-bottom:.5rem}
+.rv-head h2{font-family:'Space Grotesk',sans-serif;font-size:2rem;color:#fff}
+.rv-head h2 span{color:var(--red)}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rv-card{background:var(--dark);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.6rem;transition:transform .2s,border-color .2s}
+.rv-card:hover{transform:translateY(-4px);border-color:rgba(229,34,34,.3)}
+.rv-stars{color:#f59e0b;font-size:1rem;letter-spacing:2px;margin-bottom:.7rem}
+.rv-text{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.6;margin-bottom:1.1rem;font-style:italic}
+.rv-author{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0}
+.rv-name{display:block;color:#fff;font-size:.88rem;font-weight:600}
+.rv-meta{display:block;font-size:.75rem;color:var(--muted)}
+
+/* FADE IN */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--black);padding:1.5rem 5%;border-bottom:1px solid var(--dark2)}
+  .nav-links.open .nav-cta{display:block;margin-top:.5rem;text-align:center}
+  .hero{padding:0 5%;padding-top:90px}
+  .hero h1{font-size:2.4rem}
+  .svc-grid{grid-template-columns:1fr}
+  .brands-grid{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:1fr}
+  .about-img{display:none}
+  .rv-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo"><span class="tag">AUTO</span>Star Brothers Auto Repairing</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+971508292384" class="nav-cta">📞 050 829 2384</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">🔧 Auto Repair · Tulsa, OK</div>
+    <h1>Star <span>Brothers Auto Repairing</span></h1>
+    <p class="hero-sub">Tulsa's Trusted Auto Repair Shop — Serving Tulsa and surrounding areas with honest, reliable service.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-red">Book a Service →</a>
+      <a href="#services" class="btn-outline">Our Services ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">20+</div><div class="lbl">Years Experience</div></div>
+      <div class="hero-stat"><div class="num">4.6★</div><div class="lbl">Google Rating</div></div>
+      <div class="hero-stat"><div class="num">34+</div><div class="lbl">Happy Customers</div></div>
+      <div class="hero-stat"><div class="num">Same</div><div class="lbl">Day Service</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services fade-up" id="services">
+  <h2>Our <span>Services</span></h2>
+  <p class="sec-sub">Professional auto repair for all makes and models</p>
+  <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">🔍</span><div><strong>Full Diagnostics</strong><span class="svc-price">from $89</span></div></div>
+          <p class="svc-desc">Complete computer scan, all makes & models</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">🛢️</span><div><strong>Oil Change & Lube</strong><span class="svc-price">from $49</span></div></div>
+          <p class="svc-desc">Synthetic or conventional, filter included</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">🛑</span><div><strong>Brake Service</strong><span class="svc-price">from $120</span></div></div>
+          <p class="svc-desc">Pads, rotors, calipers & fluid flush</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">🛞</span><div><strong>Tire Services</strong><span class="svc-price">from $35</span></div></div>
+          <p class="svc-desc">Rotation, balance, mounting & alignment</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">⚙️</span><div><strong>Engine Repair</strong><span class="svc-price">from $150</span></div></div>
+          <p class="svc-desc">Major & minor engine work, guaranteed</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-top"><span class="svc-icon">❄️</span><div><strong>AC Service</strong><span class="svc-price">from $95</span></div></div>
+          <p class="svc-desc">Inspection, recharge & compressor repair</p>
+        </div></div>
+</section>
+
+<section class="brands fade-up">
+  <h2>All Makes & <span>Models</span></h2>
+  <p class="brands-sub">We service all major domestic and foreign brands</p>
+  <div class="brands-grid"><div class="brand-item">Toyota</div><div class="brand-item">Ford</div><div class="brand-item">Chevrolet</div><div class="brand-item">Honda</div><div class="brand-item">Dodge</div><div class="brand-item">Jeep</div><div class="brand-item">BMW</div><div class="brand-item">Nissan</div><div class="brand-item">Hyundai</div><div class="brand-item">Subaru</div><div class="brand-item">GMC</div><div class="brand-item">Kia</div></div>
+</section>
+
+<section class="about fade-up" id="about">
+  <div class="about-img"><img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Our shop"></div>
+  <div class="about-text">
+    <div class="sec-label">About Us</div>
+    <h2>Star Brothers Auto Repairing</h2>
+    <p>We are a locally owned and operated auto repair shop serving the Tulsa area. Our ASE-certified technicians bring honesty, skill and fair pricing to every job — big or small.</p>
+    <p>From oil changes to major engine repairs, we treat every vehicle like our own. No hidden fees, no unnecessary upsells. Just quality work you can count on.</p>
+    <ul class="checks">
+      <li><span class="check-icon">✓</span> ASE-Certified Technicians</li>
+      <li><span class="check-icon">✓</span> Free Diagnostics with Any Repair</li>
+      <li><span class="check-icon">✓</span> All Work Guaranteed</li>
+    </ul>
+    <a href="#contact" class="btn-red">Schedule Service →</a>
+  </div>
+</section>
+
+
+<section class="rv-section fade-up">
+  <div class="rv-head">
+    <div class="rv-label">CUSTOMER REVIEWS</div>
+    <h2>What Our <span>Customers Say</span></h2>
+  </div>
+  <div class="rv-grid">
+        <div class="rv-card">
+          <div class="rv-stars">★</div>
+          <p class="rv-text">"Be careful !
+They Replaced Wrongly... my Camry ignition coil last week and they charged me money but unfortunately it was Not the real problem, they found out that the air duct intake hose broken, but unfortunately again, they replaced with a WRONG hose, the car stopped, I went t"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">H</div>
+            <div><strong class="rv-name">Haitham Katramiz</strong><span class="rv-meta">Google · 6 months ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"They are professional worker and very affordable good price I am satisfied them"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">S</div>
+            <div><strong class="rv-name">Sodais Gul</strong><span class="rv-meta">Google · 6 months ago</span></div>
+          </div>
+        </div>
+        <div class="rv-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">"First time in your garage and the problem in my car completely solve the leakage… thank you and very friendly staff and affordable price… any problem in my car ill contact you again… recommended🙂"</p>
+          <div class="rv-author">
+            <div class="rv-avatar" style="background:#e52222">M</div>
+            <div><strong class="rv-name">Mary Joy</strong><span class="rv-meta">Google · a year ago</span></div>
+          </div>
+        </div></div>
+</section>
+
+<section class="contact fade-up" id="contact">
+  <div class="contact-info">
+    <div class="sec-label">Get In Touch</div>
+    <h2>Book Your Service</h2>
+    <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Address</div><div class="info-val">op The tea men cafe - 26th St - Hor Al Anz - Deira - Dubai - United Arab Emirates</div></div></div>
+    <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val"><a href="tel:+971508292384" style="color:var(--red)">050 829 2384</a></div></div></div>
+    <div class="info-row"><div class="info-icon">🕐</div><div><div class="info-label">Hours</div><div class="info-val" style="font-size:.88rem;line-height:1.8">Mon: 8:00 AM – 11:00 PM &nbsp;|&nbsp; Tue: 8:00 AM – 11:00 PM &nbsp;|&nbsp; Wed: 8:00 AM – 11:00 PM &nbsp;|&nbsp; Thu: 8:00 AM – 11:00 PM &nbsp;|&nbsp; Fri: 2:00 – 11:00 PM &nbsp;|&nbsp; Sat: 8:00 AM – 11:00 PM &nbsp;|&nbsp; Sun: 8:00 AM – 11:00 PM</div></div></div>
+    <div class="info-row"><div class="info-icon">⭐</div><div><div class="info-label">Google Reviews</div><div class="info-val">4.6★ — 34+ Reviews</div></div></div>
+  </div>
+  <div class="contact-form">
+    <h3>Request a Service</h3>
+    <div class="form-success" id="formSuccess">✓ Request received! We'll call you shortly.</div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="John Smith" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(918) 555-0000" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Vehicle Make & Year</label><input type="text" placeholder="e.g. 2019 Toyota Camry"></div>
+        <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+      </div>
+      <div class="form-group"><label>Service Needed</label>
+        <select><option value="">Select a service...</option>
+          <option>Full Diagnostics</option><option>Oil Change & Lube</option><option>Brake Service</option><option>Tire Services</option><option>Engine Repair</option><option>AC Service</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Description (optional)</label><textarea placeholder="Tell us more about what's going on with your vehicle..."></textarea></div>
+      <button type="submit" class="btn-red" style="width:100%;clip-path:none;border-radius:6px;padding:1rem">Send Request →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo"><span style="color:var(--red)">🔧</span> Star Brothers Auto Repairing</div>
+  <div class="foot-copy">© 2025 Star Brothers Auto Repairing · Tulsa, OK · All rights reserved</div>
+  <div class="foot-links"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
+});
+// Hamburger
+document.getElementById('hamburger').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+// Fade up
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+// Form
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const s=document.getElementById('formSuccess');
+  s.style.display='block';
+  this.reset();
+  setTimeout(()=>s.style.display='none',3500);
+});
+</script>
+</body>
+</html>
